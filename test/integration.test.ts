@@ -284,6 +284,36 @@ const testCases: {
       expect(stderr).toContain(log)
     },
   },
+  {
+    name: 'dirname',
+    args: [],
+    async expected(_dir, {}) {
+      assertFilesContent(_dir, {
+        './dist/index.cjs': /example = __dirname/,
+        './dist/index.mjs': /^((?!__dirname).)*$/,
+      })
+    },
+  },
+  {
+    name: 'ts-dirname',
+    args: [],
+    async expected(_dir, { stdout }) {
+      assertFilesContent(_dir, {
+        './dist/index.cjs': /example = __dirname/,
+        './dist/index.mjs': /^((?!__dirname).)*$/,
+      })
+    },
+  },
+  {
+    name: 'import-meta-url',
+    args: [],
+    async expected(_dir, { stdout, stderr }) {
+      assertFilesContent(_dir, {
+        './dist/index.mjs': /example = import\.meta\.url/,
+        './dist/index.cjs': /^((?!import\.meta\.url).)*$/,
+      })
+    },
+  },
 ]
 
 async function runBundle(

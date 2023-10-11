@@ -1,0 +1,7 @@
+{
+  "name": "dirname",
+  "exports": {
+    "node": "./dist/index.cjs",
+    "default": "./dist/index.mjs"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "import-meta-url",
+  "exports": {
+    "default": "./dist/index.mjs",
+    "node": "./dist/index.cjs"
+  }
+}
